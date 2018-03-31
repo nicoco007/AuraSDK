@@ -33,5 +33,13 @@ namespace AuraSDK
 
             sdk.SetGpuColor(handle, array, array.Length);
         }
+
+        public override void SetColors(byte[] colors)
+        {
+            if (colors.Length != LedCount * 3)
+                throw new ArgumentException(String.Format("Argument colors must have a length of {0}, got {1}", LedCount * 3, colors.Length));
+
+            sdk.SetGpuColor(handle, colors, colors.Length);
+        }
     }
 }

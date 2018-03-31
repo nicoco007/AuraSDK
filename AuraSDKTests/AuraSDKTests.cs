@@ -58,6 +58,34 @@ namespace AuraSDKTests
         }
 
         [TestMethod]
+        public void TestMotherboardByteColors()
+        {
+            SDK sdk = new SDK();
+
+            if (sdk.Motherboards.Length == 0)
+                Assert.Inconclusive();
+
+            foreach (Motherboard motherboard in sdk.Motherboards)
+            {
+                motherboard.SetMode(DeviceMode.Software);
+
+                byte[] colors = new byte[motherboard.LedCount * 3];
+
+                for (int i = 0; i < motherboard.LedCount; i++)
+                {
+                    Color color = testColors[i % testColors.Length];
+                    colors[i * 3] = color.R;
+                    colors[i * 3 + 1] = color.B;
+                    colors[i * 3 + 2] = color.G;
+                }
+
+                motherboard.SetColors(colors);
+            }
+
+            sdk.Unload();
+        }
+
+        [TestMethod]
         public void TestMotherboardFailsIfNotEnoughColors()
         {
             SDK sdk = new SDK();
@@ -111,6 +139,34 @@ namespace AuraSDKTests
                 for (int i = 0; i < colors.Length; i++)
                 {
                     colors[i] = testColors[i % testColors.Length];
+                }
+
+                gpu.SetColors(colors);
+            }
+
+            sdk.Unload();
+        }
+
+        [TestMethod]
+        public void TestMotherboardGpuColors()
+        {
+            SDK sdk = new SDK();
+
+            if (sdk.GPUs.Length == 0)
+                Assert.Inconclusive();
+
+            foreach (GPU gpu in sdk.GPUs)
+            {
+                gpu.SetMode(DeviceMode.Software);
+
+                byte[] colors = new byte[gpu.LedCount * 3];
+
+                for (int i = 0; i < gpu.LedCount; i++)
+                {
+                    Color color = testColors[i % testColors.Length];
+                    colors[i * 3] = color.R;
+                    colors[i * 3 + 1] = color.B;
+                    colors[i * 3 + 2] = color.G;
                 }
 
                 gpu.SetColors(colors);

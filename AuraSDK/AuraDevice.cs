@@ -18,5 +18,6 @@ namespace AuraSDK
 
         public abstract void SetMode(DeviceMode mode);
         public abstract void SetColors(Color[] colors);
+        public abstract void SetColors(byte[] colors);
     }
 }
