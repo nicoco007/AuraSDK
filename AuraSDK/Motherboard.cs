@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 
 namespace AuraSDK
 {
@@ -31,9 +32,6 @@ namespace AuraSDK
 
             for (int i = 0; i < colors.Length; i++)
             {
-                if (colors[i] == null)
-                    throw new ArgumentNullException("Colors array contains null value at position " + i);
-
                 array[i * 3] = colors[i].R;
                 array[i * 3 + 1] = colors[i].B;
                 array[i * 3 + 2] = colors[i].G;
