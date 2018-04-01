@@ -4,16 +4,24 @@ namespace AuraSDK
 {
     public class GPU : AuraDevice
     {
-        public GPU(SDK sdk, IntPtr handle) : base(sdk, handle)
+        internal GPU(SDK sdk, IntPtr handle) : base(sdk, handle)
         {
             ledCount = sdk.GetGpuLedCount(handle);
         }
 
+        /// <summary>
+        /// Set the device's RGB mode (currently only default/automatic or software).
+        /// </summary>
+        /// <param name="mode"></param>
         public override void SetMode(DeviceMode mode)
         {
             sdk.SetGpuMode(handle, (int)mode);
         }
 
+        /// <summary>
+        /// Set the device's colors. There must be the same number of colors as there are zones on the device.
+        /// </summary>
+        /// <param name="colors">Colors of the different zones</param>
         public override void SetColors(Color[] colors)
         {
             if (colors.Length != LedCount)
@@ -34,6 +42,10 @@ namespace AuraSDK
             sdk.SetGpuColor(handle, array, array.Length);
         }
 
+        /// <summary>
+        /// Set the device's colors. There must be the same number of colors as there are zones on the device times 3 bytes.
+        /// </summary>
+        /// <param name="colors">Colors of the different zones as bytes in RBG order</param>
         public override void SetColors(byte[] colors)
         {
             if (colors.Length != LedCount * 3)

@@ -6,7 +6,14 @@ namespace AuraSDK
 {
     public class SDK
     {
+        /// <summary>
+        /// Array of found motherboard controllers
+        /// </summary>
         public Motherboard[] Motherboards { get => motherboards; }
+
+        /// <summary>
+        /// Array of found GPU controllers
+        /// </summary>
         public GPU[] GPUs { get => gpus; }
 
         private Motherboard[] motherboards;
@@ -48,11 +55,17 @@ namespace AuraSDK
         private GetGpuLedCountPointer getGpuLedCountPointer;
         private SetGpuColorPointer setGpuColorPointer;
 
+        /// <summary>
+        /// Creates a new instance of the SDK class.
+        /// </summary>
         public SDK()
         {
             Load();
         }
 
+        /// <summary>
+        /// Reloads all controllers.
+        /// </summary>
         public void Reload()
         {
             Unload();
@@ -108,6 +121,9 @@ namespace AuraSDK
             }
         }
 
+        /// <summary>
+        /// Unloads the SDK, removing all references to the DLL.
+        /// </summary>
         public void Unload()
         {
             if (dllHandle == IntPtr.Zero)
