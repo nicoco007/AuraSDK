@@ -136,14 +136,14 @@ namespace AuraSDK
             gpus = new GPU[0];
         }
 
-        public int EnumerateMbController(IntPtr handles, int size) => enumerateMbControllerPointer(handles, size);
-        public void SetMbMode(IntPtr handle, int mode) => setMbModePointer(handle, mode);
-        public int GetMbLedCount(IntPtr handle) => getMbLedCountPointer(handle);
-        public void SetMbColor(IntPtr handle, byte[] colors, int size) => setMbColorPointer(handle, colors, size);
+        internal int EnumerateMbController(IntPtr handles, int size) => enumerateMbControllerPointer(handles, size);
+        internal void SetMbMode(IntPtr handle, int mode) => setMbModePointer(handle, mode);
+        internal int GetMbLedCount(IntPtr handle) => getMbLedCountPointer(handle);
+        internal void SetMbColor(IntPtr handle, byte[] colors, int size) => setMbColorPointer(handle, colors, size);
 
-        public int EnumerateGpuController(IntPtr handles, int size) => enumerateGpuControllerPointer(handles, size);
-        public void SetGpuMode(IntPtr handle, int mode) => setGpuModePointer(handle, mode);
-        public int GetGpuLedCount(IntPtr handle) => getGpuLedCountPointer(handle);
-        public void SetGpuColor(IntPtr handle, byte[] colors, int size) => setGpuColorPointer(handle, colors, size);
+        internal int EnumerateGpuController(IntPtr handles, int size) => enumerateGpuControllerPointer(handles, size);
+        internal void SetGpuMode(IntPtr handle, int mode) => setGpuModePointer(handle, mode);
+        internal int GetGpuLedCount(IntPtr handle) => getGpuLedCountPointer(handle);
+        internal void SetGpuColor(IntPtr handle, byte[] colors, int size) => setGpuColorPointer(handle, colors, size);
     }
 }
