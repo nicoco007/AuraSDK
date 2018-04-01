@@ -80,12 +80,23 @@ namespace AuraSDK
 
         private void Load(string path)
         {
+            if (String.IsNullOrEmpty(path))
+                throw new ArgumentNullException("Path cannot be null or empty");
+
+            string fileName = Path.GetFileName(path);
+            string directory = Path.GetDirectoryName(path);
+
             if (!File.Exists(path))
                 throw new FileNotFoundException(path + " not found");
 
             dllPath = path;
 
-            dllHandle = NativeMethods.LoadLibrary(path);
+            if (!String.IsNullOrEmpty(directory))
+                NativeMethods.SetDllDirectory(directory);
+            else
+                NativeMethods.SetDllDirectory(Directory.GetCurrentDirectory());
+
+            dllHandle = NativeMethods.LoadLibrary(fileName);
 
             enumerateMbControllerPointer = (EnumerateMbControllerPointer)Marshal.GetDelegateForFunctionPointer(NativeMethods.GetProcAddress(dllHandle, "EnumerateMbController"), typeof(EnumerateMbControllerPointer));
             setMbModePointer = (SetMbModePointer)Marshal.GetDelegateForFunctionPointer(NativeMethods.GetProcAddress(dllHandle, "SetMbMode"), typeof(SetMbModePointer));

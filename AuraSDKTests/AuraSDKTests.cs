@@ -1,6 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using AuraSDK;
 using System;
+using System.IO;
+using System.Diagnostics;
 
 namespace AuraSDKTests
 {
@@ -28,7 +30,29 @@ namespace AuraSDKTests
         {
             SDK sdk = new SDK();
 
+            Debug.WriteLine(Path.GetFileName("AURA_SDK.dll"));
+
             sdk.Unload();
+        }
+
+        [TestMethod]
+        public void TestLoadUnloadRelativeDirectory()
+        {
+            SDK sdk = new SDK(@"lib\AURA_SDK_lib.dll");
+
+            sdk.Unload();
+        }
+
+        [TestMethod]
+        public void TestLoadUnloadEmptyPath()
+        {
+            Assert.ThrowsException<ArgumentNullException>(() => new SDK(""), "Path cannot be null or empty");
+        }
+
+        [TestMethod]
+        public void TestLoadUnloadInvalidPath()
+        {
+            Assert.ThrowsException<FileNotFoundException>(() => new SDK("src/hello.dll"), "src/hello.dll not found");
         }
 
         [TestMethod]
