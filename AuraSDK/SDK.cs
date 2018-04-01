@@ -20,6 +20,7 @@ namespace AuraSDK
         private GPU[] gpus;
 
         private IntPtr dllHandle = IntPtr.Zero;
+        private string dllPath = "AURA_SDK.dll";
 
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         private delegate int EnumerateMbControllerPointer(IntPtr handles, int size);
@@ -60,7 +61,12 @@ namespace AuraSDK
         /// </summary>
         public SDK()
         {
-            Load();
+            Load("AURA_SDK.dll");
+        }
+
+        public SDK(string path)
+        {
+            Load(path);
         }
 
         /// <summary>
@@ -69,15 +75,17 @@ namespace AuraSDK
         public void Reload()
         {
             Unload();
-            Load();
+            Load(dllPath);
         }
 
-        private void Load()
+        private void Load(string path)
         {
-            if (!File.Exists("AURA_SDK.dll"))
-                throw new FileNotFoundException("AURA_SDK.dll not found");
+            if (!File.Exists(path))
+                throw new FileNotFoundException(path + " not found");
 
-            dllHandle = NativeMethods.LoadLibrary("AURA_SDK.dll");
+            dllPath = path;
+
+            dllHandle = NativeMethods.LoadLibrary(path);
 
             enumerateMbControllerPointer = (EnumerateMbControllerPointer)Marshal.GetDelegateForFunctionPointer(NativeMethods.GetProcAddress(dllHandle, "EnumerateMbController"), typeof(EnumerateMbControllerPointer));
             setMbModePointer = (SetMbModePointer)Marshal.GetDelegateForFunctionPointer(NativeMethods.GetProcAddress(dllHandle, "SetMbMode"), typeof(SetMbModePointer));
