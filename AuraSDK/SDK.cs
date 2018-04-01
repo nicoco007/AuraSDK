@@ -75,7 +75,7 @@ namespace AuraSDK
             setGpuModePointer = (SetGpuModePointer)Marshal.GetDelegateForFunctionPointer(NativeMethods.GetProcAddress(dllHandle, "SetGPUMode"), typeof(SetGpuModePointer));
             getGpuLedCountPointer = (GetGpuLedCountPointer)Marshal.GetDelegateForFunctionPointer(NativeMethods.GetProcAddress(dllHandle, "GetGPULedCount"), typeof(GetGpuLedCountPointer));
             setGpuColorPointer = (SetGpuColorPointer)Marshal.GetDelegateForFunctionPointer(NativeMethods.GetProcAddress(dllHandle, "SetGPUColor"), typeof(SetGpuColorPointer));
-            
+
             LoadMotherboards();
             LoadGpus();
         }
@@ -84,13 +84,7 @@ namespace AuraSDK
         {
             int controllerCount = EnumerateMbController(IntPtr.Zero, 0);
 
-            IntPtr[] handles = new IntPtr[controllerCount];
-            IntPtr handlesPointer = Marshal.AllocHGlobal(controllerCount);
-
-            EnumerateMbController(handlesPointer, controllerCount);
-
-            Marshal.Copy(handlesPointer, handles, 0, controllerCount);
-            Marshal.FreeHGlobal(handlesPointer);
+            IntPtr[] handles = Util.ArrayFromPointer(controllerCount, (pointer) => EnumerateMbController(pointer, controllerCount));
 
             motherboards = new Motherboard[controllerCount];
 
@@ -104,13 +98,7 @@ namespace AuraSDK
         {
             int controllerCount = EnumerateGpuController(IntPtr.Zero, 0);
 
-            IntPtr[] handles = new IntPtr[controllerCount];
-            IntPtr handlesPointer = Marshal.AllocHGlobal(controllerCount);
-
-            EnumerateGpuController(handlesPointer, controllerCount);
-
-            Marshal.Copy(handlesPointer, handles, 0, controllerCount);
-            Marshal.FreeHGlobal(handlesPointer);
+            IntPtr[] handles = Util.ArrayFromPointer(controllerCount, (pointer) => EnumerateGpuController(pointer, controllerCount));
 
             gpus = new GPU[controllerCount];
 
