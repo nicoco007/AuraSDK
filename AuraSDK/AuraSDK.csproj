@@ -50,7 +50,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -59,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuraDevice.cs" />
+    <Compile Include="Color.cs" />
     <Compile Include="DeviceMode.cs" />
     <Compile Include="GPU.cs" />
     <Compile Include="Motherboard.cs" />

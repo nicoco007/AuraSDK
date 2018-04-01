@@ -1,7 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using AuraSDK;
 using System;
-using System.Drawing;
 
 namespace AuraSDKTests
 {
@@ -10,18 +9,18 @@ namespace AuraSDKTests
     {
         private Color[] testColors = new Color[] 
         {
-            Color.FromArgb(1, 255, 0, 0),
-            Color.FromArgb(1, 255, 127, 0),
-            Color.FromArgb(1, 255, 255, 0),
-            Color.FromArgb(1, 127, 255, 0),
-            Color.FromArgb(1, 0, 255, 0),
-            Color.FromArgb(1, 0, 255, 127),
-            Color.FromArgb(1, 0, 255, 255),
-            Color.FromArgb(1, 0, 127, 255),
-            Color.FromArgb(1, 0, 0, 255),
-            Color.FromArgb(1, 127, 0, 255),
-            Color.FromArgb(1, 255, 0, 255),
-            Color.FromArgb(1, 255, 0, 127)
+            new Color(255, 0, 0),
+            new Color(255, 127, 0),
+            new Color(255, 255, 0),
+            new Color(127, 255, 0),
+            new Color(0, 255, 0),
+            new Color(0, 255, 127),
+            new Color(0, 255, 255),
+            new Color(0, 127, 255),
+            new Color(0, 0, 255),
+            new Color(127, 0, 255),
+            new Color(255, 0, 255),
+            new Color(255, 0, 127)
         };
 
         [TestMethod]
