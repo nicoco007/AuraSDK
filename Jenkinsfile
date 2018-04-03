@@ -5,7 +5,8 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        bat 'msbuild AuraSDK\\AuraSDK.csproj /t:Build /p:Configuration=Release'
+        bat 'nuget restore'
+        bat 'msbuild AuraSDK.sln /t:Build /p:Configuration=Release'
       }
     }
     stage('Test') {
