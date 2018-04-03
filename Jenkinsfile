@@ -11,7 +11,7 @@ pipeline {
     }
     stage('Test') {
       steps {
-        vsTest(testFiles: './AuraSDKTests\\bin\\Release\\AuraSDKTests.dll')
+        vsTest(testFiles: 'AuraSDKTests\\bin\\Release\\AuraSDKTests.dll', enablecodecoverage: true)
       }
     }
     stage('Archive') {
