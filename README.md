@@ -5,7 +5,7 @@
 [![NuGet](https://img.shields.io/nuget/v/AuraSDK.svg?style=flat-square)](https://www.nuget.org/packages/AuraSDK)
 
 
-C# wrapper for the Asus Aura SDK
+C# wrapper for the Asus Aura SDK. Currently only supports motherboards and GPUs.
 
 # Usage
 You can [use NuGet](https://www.nuget.org/packages/AuraSDK/) or [download from the releases page](https://github.com/nicoco007/AuraSDK/releases) to add this DLL to your project. You will also need to download the Aura SDK from [the official website](https://www.asus.com/campaign/aura/us/SDK.html) and put it somewhere (preferably in your project folder).
