@@ -13,6 +13,7 @@ pipeline {
       steps {
         vsTest(enablecodecoverage: true, cmdLineArgs: '"AuraSDKTests\\bin\\Release\\AuraSDKTests.dll"')
         step([$class: 'MSTestPublisher', testResultsFile:"**/*.trx", failOnError: true, keepLongStdio: true])
+        powershell '$generatedCoverageFile = $(get-ChildItem -Path .\\TestResults -Recurse -Include *coverage)[0]; CoverageConverter $generatedCoverageFile TestResults\\vstest.coveragexml'
       }
     }
     stage('Archive') {
