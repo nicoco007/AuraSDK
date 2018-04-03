@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+    <metadata>
+        <!-- The identifier that must be unique within the hosting gallery -->
+        <id>AuraSDK</id>
+		<title>ASUS Aura SDK</title>
+
+        <!-- The package version number that is used when resolving dependencies -->
+        <version>1.0.1</version>
+
+        <!-- Authors contain text that appears directly on the gallery -->
+        <authors>Nicolas Gnyra</authors>
+
+        <!-- Owners are typically nuget.org identities that allow gallery
+                users to easily find other packages by the same owners.  -->
+        <owners>nicoco007</owners>
+
+        <!-- License and project URLs provide links for the gallery -->
+        <licenseUrl>https://opensource.org/licenses/AGPL-3.0</licenseUrl>
+        <projectUrl>https://github.com/nicoco007/AuraSDK</projectUrl>
+
+        <!-- If true, this value prompts the user to accept the license when
+                installing the package. -->
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+
+        <!-- Any details about this particular release -->
+        <releaseNotes>Added optional path argument to constructor to specify location of AURA_SDK.dll</releaseNotes>
+
+        <!-- The description can be used in package manager UI. Note that the
+                nuget.org gallery uses information you add in the portal. -->
+        <description>Unofficial C# wrapper for the official ASUS Aura SDK</description>
+
+        <!-- Copyright information -->
+        <copyright>Copyright © 2017 Nicolas Gnyra</copyright>
+
+        <!-- Tags appear in the gallery and can be used for tag searches -->
+        <tags>rgb led c# csharp asus aura sdk</tags>
+    </metadata>
+
+    <!-- A readme.txt to display when the package is installed -->
+    <files>
+        <file src="AuraSDK\bin\Release\AuraSDK.dll" target="lib" />
+    </files>
+</package>
