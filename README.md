@@ -6,3 +6,24 @@
 
 
 C# wrapper for the Asus Aura SDK
+
+# Usage
+You can [use NuGet](https://www.nuget.org/packages/AuraSDK/) or [download from the releases page](https://github.com/nicoco007/AuraSDK/releases) to add this DLL to your project. You will also need to download the Aura SDK from [the official website](https://www.asus.com/campaign/aura/us/SDK.html) and put it somewhere (preferably in your project folder).
+
+Create a new instance of the SDK class using
+
+```cs
+var sdk = new SDK();
+```
+
+or, if you want to put the `AURA_SDK.dll` file somewhere else, use
+
+```cs
+var sdk = new SDK("path/to/your/AURA_SDK.dll");
+```
+
+Devices are automatically loaded and should be ready to use. Most functions are at least somewhat documented or relatively self-explanatory.
+
+# Todo
+* Don't use SDK as a class name (too generic)
+* Add support for mice & keyboards
