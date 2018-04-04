@@ -22,7 +22,7 @@ or, if you want to put the `AURA_SDK.dll` file somewhere else, use
 var sdk = new SDK("path/to/your/AURA_SDK.dll");
 ```
 
-Devices are automatically loaded and should be ready to use. Most functions are at least somewhat documented or relatively self-explanatory.
+Devices are automatically loaded and should be ready to use. Most functions are at least somewhat documented or relatively self-explanatory. I might add some more documentation here at some point.
 
 # Todo
 * Don't use SDK as a class name (too generic)
