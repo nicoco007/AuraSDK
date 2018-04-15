@@ -12,6 +12,7 @@ pipeline {
     stage('Test') {
       steps {
         vsTest(enablecodecoverage: true, cmdLineArgs: '"AuraSDKTests\\bin\\Release\\AuraSDKTests.dll"')
+        step([$class: 'MSTestPublisher', testResultsFile:"**/*.trx", failOnError: true, keepLongStdio: true])
       }
     }
     stage('Archive') {
