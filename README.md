@@ -13,13 +13,13 @@ You can [use NuGet](https://www.nuget.org/packages/AuraSDK/) or [download from t
 Create a new instance of the SDK class using
 
 ```cs
-var sdk = new SDK();
+var sdk = new AuraSDK();
 ```
 
 or, if you want to put the `AURA_SDK.dll` file somewhere else, use
 
 ```cs
-var sdk = new SDK("path/to/your/AURA_SDK.dll");
+var sdk = new AuraSDK("path/to/your/AURA_SDK.dll");
 ```
 
 Devices are automatically loaded and should be ready to use. Most functions are at least somewhat documented or relatively self-explanatory. I might add some more documentation here at some point.
