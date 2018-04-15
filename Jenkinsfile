@@ -17,7 +17,7 @@ pipeline {
     }
     stage('Archive') {
       steps {
-        archiveArtifacts 'AuraSDK\\bin\\Release\\AuraSDK.dll'
+        archiveArtifacts 'AuraSDK\\bin\\Release\\AuraSDKDotNet.dll'
       }
     }
     stage('Clean') {
