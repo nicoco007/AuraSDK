@@ -1,4 +1,4 @@
-﻿namespace AuraSDK
+﻿namespace AuraSDKDotNet
 {
     public enum DeviceMode : int
     {

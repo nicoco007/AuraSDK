@@ -2,9 +2,9 @@
 using System.IO;
 using System.Runtime.InteropServices;
 
-namespace AuraSDK
+namespace AuraSDKDotNet
 {
-    public class SDK
+    public class AuraSDK
     {
         /// <summary>
         /// Array of found motherboard controllers
@@ -59,12 +59,12 @@ namespace AuraSDK
         /// <summary>
         /// Creates a new instance of the SDK class.
         /// </summary>
-        public SDK()
+        public AuraSDK()
         {
             Load("AURA_SDK.dll");
         }
 
-        public SDK(string path)
+        public AuraSDK(string path)
         {
             Load(path);
         }

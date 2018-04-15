@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using AuraSDK;
+using AuraSDKDotNet;
 using System;
 using System.IO;
 using System.Diagnostics;
@@ -28,7 +28,7 @@ namespace AuraSDKTests
         [TestMethod]
         public void TestLoadUnload()
         {
-            SDK sdk = new SDK();
+            AuraSDK sdk = new AuraSDK();
 
             sdk.Unload();
         }
@@ -36,7 +36,7 @@ namespace AuraSDKTests
         [TestMethod]
         public void TestLoadUnloadRelativeDirectory()
         {
-            SDK sdk = new SDK(@"lib\AURA_SDK_lib.dll");
+            AuraSDK sdk = new AuraSDK(@"lib\AURA_SDK_lib.dll");
 
             sdk.Unload();
         }
@@ -44,19 +44,19 @@ namespace AuraSDKTests
         [TestMethod]
         public void TestLoadUnloadEmptyPath()
         {
-            Assert.ThrowsException<ArgumentNullException>(() => new SDK(""), "Path cannot be null or empty");
+            Assert.ThrowsException<ArgumentNullException>(() => new AuraSDK(""), "Path cannot be null or empty");
         }
 
         [TestMethod]
         public void TestLoadUnloadInvalidPath()
         {
-            Assert.ThrowsException<FileNotFoundException>(() => new SDK("src/hello.dll"), "src/hello.dll not found");
+            Assert.ThrowsException<FileNotFoundException>(() => new AuraSDK("src/hello.dll"), "src/hello.dll not found");
         }
 
         [TestMethod]
         public void TestMotherboards()
         {
-            SDK sdk = new SDK();
+            AuraSDK sdk = new AuraSDK();
 
             if (sdk.Motherboards.Length == 0)
                 Assert.Inconclusive();
@@ -81,7 +81,7 @@ namespace AuraSDKTests
         [TestMethod]
         public void TestMotherboardByteColors()
         {
-            SDK sdk = new SDK();
+            AuraSDK sdk = new AuraSDK();
 
             if (sdk.Motherboards.Length == 0)
                 Assert.Inconclusive();
@@ -109,7 +109,7 @@ namespace AuraSDKTests
         [TestMethod]
         public void TestMotherboardFailsIfNotEnoughColors()
         {
-            SDK sdk = new SDK();
+            AuraSDK sdk = new AuraSDK();
 
             if (sdk.Motherboards.Length == 0)
                 Assert.Inconclusive();
@@ -129,7 +129,7 @@ namespace AuraSDKTests
         [TestMethod]
         public void TestGpus()
         {
-            SDK sdk = new SDK();
+            AuraSDK sdk = new AuraSDK();
 
             foreach (GPU gpu in sdk.GPUs)
             {
@@ -151,7 +151,7 @@ namespace AuraSDKTests
         [TestMethod]
         public void TestMotherboardGpuColors()
         {
-            SDK sdk = new SDK();
+            AuraSDK sdk = new AuraSDK();
 
             if (sdk.GPUs.Length == 0)
                 Assert.Inconclusive();
@@ -179,7 +179,7 @@ namespace AuraSDKTests
         [TestMethod]
         public void TestGpuFailsIfNotEnoughColors()
         {
-            SDK sdk = new SDK();
+            AuraSDK sdk = new AuraSDK();
 
             if (sdk.GPUs.Length == 0)
                 Assert.Inconclusive();

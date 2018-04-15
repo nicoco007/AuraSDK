@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AuraSDK
+namespace AuraSDKDotNet
 {
     public abstract class AuraDevice
     {
@@ -9,11 +9,11 @@ namespace AuraSDK
         /// </summary>
         public int LedCount { get => ledCount; }
 
-        protected SDK sdk;
+        protected AuraSDK sdk;
         protected IntPtr handle;
         protected int ledCount;
 
-        internal AuraDevice(SDK sdk, IntPtr handle)
+        internal AuraDevice(AuraSDK sdk, IntPtr handle)
         {
             this.sdk = sdk;
             this.handle = handle;

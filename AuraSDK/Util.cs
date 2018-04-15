@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace AuraSDK
+namespace AuraSDKDotNet
 {
     internal static class Util
     {

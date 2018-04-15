@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace AuraSDK
+namespace AuraSDKDotNet
 {
     public class GPU : AuraDevice
     {
-        internal GPU(SDK sdk, IntPtr handle) : base(sdk, handle)
+        internal GPU(AuraSDK sdk, IntPtr handle) : base(sdk, handle)
         {
             ledCount = sdk.GetGpuLedCount(handle);
         }

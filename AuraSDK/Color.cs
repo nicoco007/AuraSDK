@@ -1,4 +1,4 @@
-﻿namespace AuraSDK
+﻿namespace AuraSDKDotNet
 {
     public class Color
     {

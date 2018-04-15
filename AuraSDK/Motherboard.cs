@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace AuraSDK
+namespace AuraSDKDotNet
 {
     public class Motherboard : AuraDevice
     {
-        internal Motherboard(SDK sdk, IntPtr handle) : base(sdk, handle)
+        internal Motherboard(AuraSDK sdk, IntPtr handle) : base(sdk, handle)
         {
             ledCount = sdk.GetMbLedCount(handle);
         }
