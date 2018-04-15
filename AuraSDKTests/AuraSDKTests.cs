@@ -30,8 +30,6 @@ namespace AuraSDKTests
         {
             SDK sdk = new SDK();
 
-            Debug.WriteLine(Path.GetFileName("AURA_SDK.dll"));
-
             sdk.Unload();
         }
 
