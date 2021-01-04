@@ -61,8 +61,10 @@
     <Compile Include="Color.cs" />
     <Compile Include="DeviceMode.cs" />
     <Compile Include="GPU.cs" />
+    <Compile Include="Keyboard.cs" />
     <Compile Include="Motherboard.cs" />
     <Compile Include="AuraSDK.cs" />
+    <Compile Include="Mouse.cs" />
     <Compile Include="NativeMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util.cs" />
