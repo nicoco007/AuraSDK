@@ -26,4 +26,3 @@ Devices are automatically loaded and should be ready to use. Most functions are 
 
 # Todo
 * Don't use SDK as a class name (too generic)
-* Add support for mice & keyboards
