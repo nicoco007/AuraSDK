@@ -139,7 +139,7 @@ namespace AuraSDKTests
 
                 for (int i = 0; i < colors.Length; i++)
                 {
-                    colors[i] = testColors[i % testColors.Length];
+                    colors[i] = new Color(0, 255, 0);
                 }
 
                 gpu.SetColors(colors);
@@ -192,6 +192,153 @@ namespace AuraSDKTests
             }
 
             Assert.ThrowsException<ArgumentException>(() => sdk.GPUs[0].SetColors(colors));
+
+            sdk.Unload();
+        }
+
+        [TestMethod]
+        public void TestKeyboards()
+        {
+            AuraSDK sdk = new AuraSDK();
+
+            if (sdk.Keyboards.Length == 0)
+                Assert.Inconclusive();
+
+            foreach (Keyboard keyboard in sdk.Keyboards)
+            {
+                keyboard.SetMode(DeviceMode.Software);
+
+                Color[] colors = new Color[keyboard.LedCount];
+
+                for (int i = 0; i < colors.Length; i++)
+                {
+                    colors[i] = testColors[i % testColors.Length];
+                }
+
+                keyboard.SetColors(colors);
+            }
+
+            sdk.Unload();
+        }
+
+        [TestMethod]
+        public void TestKeyboardByteColors()
+        {
+            AuraSDK sdk = new AuraSDK();
+
+            if (sdk.Keyboards.Length == 0)
+                Assert.Inconclusive();
+
+            foreach (Keyboard keyboard in sdk.Keyboards)
+            {
+                keyboard.SetMode(DeviceMode.Software);
+
+                byte[] colors = new byte[keyboard.LedCount * 3];
+
+                for (int i = 0; i < keyboard.LedCount; i++)
+                {
+                    Color color = testColors[i % testColors.Length];
+                    colors[i * 3] = color.R;
+                    colors[i * 3 + 1] = color.B;
+                    colors[i * 3 + 2] = color.G;
+                }
+
+                keyboard.SetColors(colors);
+            }
+
+            sdk.Unload();
+        }
+
+        [TestMethod]
+        public void TestKeyboardFailsIfNotEnoughColors()
+        {
+            AuraSDK sdk = new AuraSDK();
+
+            if (sdk.Keyboards.Length == 0)
+                Assert.Inconclusive();
+
+            Color[] colors = new Color[sdk.Keyboards[0].LedCount + 1];
+
+            for (int i = 0; i < colors.Length; i++)
+            {
+                colors[i] = testColors[i % testColors.Length];
+            }
+
+            Assert.ThrowsException<ArgumentException>(() => sdk.Keyboards[0].SetColors(colors));
+
+            sdk.Unload();
+        }
+
+        [TestMethod]
+        public void TestMice()
+        {
+            AuraSDK sdk = new AuraSDK();
+
+            if (sdk.Mice.Length == 0)
+                Assert.Inconclusive();
+
+            foreach (Mouse mouse in sdk.Mice)
+            {
+                mouse.SetMode(DeviceMode.Software);
+
+
+                Color[] colors = new Color[mouse.LedCount];
+
+                for (int i = 0; i < colors.Length; i++)
+                {
+                    colors[i] = testColors[i % testColors.Length];
+                }
+
+                mouse.SetColors(colors);
+            }
+
+            sdk.Unload();
+        }
+
+        [TestMethod]
+        public void TestMouseByteColors()
+        {
+            AuraSDK sdk = new AuraSDK();
+
+            if (sdk.Mice.Length == 0)
+                Assert.Inconclusive();
+
+            foreach (Mouse mouse in sdk.Mice)
+            {
+                mouse.SetMode(DeviceMode.Software);
+
+                byte[] colors = new byte[mouse.LedCount * 3];
+
+                for (int i = 0; i < mouse.LedCount; i++)
+                {
+                    Color color = testColors[i % testColors.Length];
+                    colors[i * 3] = color.R;
+                    colors[i * 3 + 1] = color.B;
+                    colors[i * 3 + 2] = color.G;
+                }
+
+                mouse.SetColors(colors);
+            }
+
+            sdk.Unload();
+        }
+
+        [TestMethod]
+        public void TestMouseFailsIfNotEnoughColors()
+        {
+            AuraSDK sdk = new AuraSDK();
+
+            if (sdk.Mice.Length == 0)
+                Assert.Inconclusive();
+
+            Color[] colors = new Color[sdk.Mice[0].LedCount + 1];
+
+            for (int i = 0; i < colors.Length; i++)
+            {
+                colors[i] = testColors[i % testColors.Length];
+            }
+
+            Assert.ThrowsException<ArgumentException>(() => sdk.Mice[0].SetColors(colors));
 
             sdk.Unload();
         }
