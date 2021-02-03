@@ -1,3 +1,8 @@
+# THIS PROJECT IS NO LONGER ACTIVE!
+# If you're looking for something to control your computer's RGB (more than just ASUS stuff), check out [OpenRGB](https://gitlab.com/CalcProgrammer1/OpenRGB)! 
+
+---
+
 # AuraSDK
 [![Build Status](https://img.shields.io/jenkins/s/https/ci.gnyra.com/job/AuraSDK/job/master.svg?style=flat-square)](https://ci.gnyra.com/blue/organizations/jenkins/AuraSDK)
 ![Jenkins tests](https://img.shields.io/jenkins/t/https/ci.gnyra.com/job/AuraSDK/job/master.svg?style=flat-square)
